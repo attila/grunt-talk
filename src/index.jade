@@ -1,0 +1,161 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Using Require.js in Dennis Distro
+
+    // build:css styles/styles.css
+    //- Check out 'src/bower_components/prism/themes/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-tomorrow.css')
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    link(rel='stylesheet', type='text/css', href='styles/csshake.min.css')
+    // endbuild
+
+  body
+
+    article
+
+      section(data-bespoke-state='main')
+        h1 Automate all teh things with task runners
+        hr
+        hr
+        hr
+        hr
+        h3 Attila Beregszaszi
+        hr
+        h4 08/04/2015
+
+      section
+        h1 Integration
+
+      section
+        h2 1. Basic integration
+        hr
+        hr
+        h3 add <code>package.json</code> and <code>Gruntfile.js</code> to your projects
+
+      section
+        pre
+          code.language-markup.
+              $ tree my_basic_project
+              my_basic_project/
+              ├── .gitignore
+              ├── Gruntfile.js
+              ├── dist
+              │   ├── build.js
+              │   └── build.min.js
+              ├── package.json
+              ├── src
+              │   ├── src.js
+              │   ├── src-2.js
+              └── tests
+                  └── my_test_spec.js
+
+      section
+        h3 What is in .gitignore?
+        hr
+        hr
+        ul
+          li
+          li
+            h4 Only <code>node_modules</code>
+          li
+            h4 <code>package.json</code> and <code>Gruntfile.js</code> remain versioned together with <code>dist/</code>
+
+      section
+        h3 DEMO
+        hr
+        hr
+        hr
+        p
+          img(src='images/demo-1.gif')
+
+      section
+        h3 One caveat
+        hr
+        hr
+        h4 Make sure you run the build before every commit
+        hr
+        h5 or at least every commit in a branch meant for production
+
+      section
+        h2 2. Integration with build systems
+        hr
+        hr
+        ul
+          li
+            h3 add <code>package.json</code> and <code>Gruntfile.js</code> to your projects
+          li
+            hr
+            h3 ignore build output
+
+      section
+        pre
+          code.language-markup.
+              drupal_site/
+              ├── .gitignore
+              ├── Gruntfile.js
+              ├── package.json
+              ├── modules
+              ├── themes
+              │   ├── base
+              │   │   ├── js
+              │   │   ├── sass
+              │   │   └── templates
+              │   ├── site
+              │   │   ├── js
+              │   │   ├── sass
+              │   │   └── templates
+              ├── .gitignore
+              └── site.make
+
+      section
+        h3 What's ignored?
+        hr
+        hr
+        ul
+          li
+          li
+            h4 <code>node_modules</code>
+          li
+            h4 <code>sass-extensions</code>
+          li
+            h4 <code>css</code>
+
+      section
+        h3 We expect to run grunt every time a build runs
+        hr
+        h4 we build starting with a clean workspace
+
+      section
+        h3 We have this "one-liner" as a Jenkins/Capistrano build step:
+        hr
+        hr
+        hr
+        img(src='images/oneliner.png' style='zoom:0.6')
+
+      section
+        h2 If This Fails
+        h2 It Should Fail The Build
+
+      section(data-bespoke-state='main')
+        h1 Thank You
+        hr
+        hr
+        hr
+        hr
+        hr
+        h5 <a href="http://attila.github.io/distro-requirejs-talk">attila.github.io/grunt-talk</a>
+
+    // build:js scripts/scripts.js
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-keys/dist/bespoke-keys.min.js')
+    script(src='bower_components/bespoke-touch/dist/bespoke-touch.min.js')
+    script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
+    script(src='bower_components/bespoke-scale/dist/bespoke-scale.min.js')
+    script(src='bower_components/bespoke-progress/dist/bespoke-progress.min.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='scripts/main.js')
+    // endbuild
